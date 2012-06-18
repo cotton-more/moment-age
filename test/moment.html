@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <script type="text/javascript" src="../../moment/moment.js"></script>
+    <script type="text/javascript" src="../moment.age.js"></script>
+</head>
+<body>
+    <pre id="result">
+var m, age;
+// In 26 of November, 2009
+m = moment([2009, 10, 26]);
+// someone who was born in 11 of March, 1981
+age = m.age([1981, 2, 11]);
+
+<strong>was:</strong>
+
+</pre>
+    <script type="text/javascript">
+        var m, age, i, result = "";
+        m = moment([2009, 10, 26]);
+        age = m.age([1981, 2, 11]); // {'years': 28, 'months': 8, 'days': 14}
+        for (i in age) {
+            if (age.hasOwnProperty(i)) {
+                result += "    '" + i + "' : " + age[i] + ",\n";
+            }
+        }
+        console.log( result );
+        document.getElementById("result").innerHTML += "{\n" + result + "}";
+    </script>
+</body>
+</html>
